@@ -1,0 +1,19 @@
+class Solution:    
+    def ValidCorner(self,matrix): 
+        N = len(matrix)
+        M = len(matrix[0])
+        i = 0
+        while i < N-1:
+            j = i+1
+            while j<N:
+                count = 0
+                k = 0
+                while k<M:
+                    if((mat[i][k] + mat[j][k])== 2):
+                        count+=1
+                    k+=1
+                    if count>=2:
+                        return True
+                j+=1
+            i+=1
+        return False
