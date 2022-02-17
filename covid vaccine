@@ -1,0 +1,16 @@
+count, dist = self.count_dist(root)
+        return count + dist // 2
+        
+    def count_dist(self, node):
+        if not node.left and not node.right:
+            return(0, 2)
+        l_count, l_dist = self.count_dist(node.left) if node.left else (0, 3)
+        r_count, r_dist = self.count_dist(node.right) if node.right else (0, 3)
+        
+        count = l_count + r_count
+        if l_dist == 2 or r_dist ==2:
+            count +=1
+            dist = 0
+        else:
+            dist = min(l_dist, r_dist) + 1
+        return (count, dist)
